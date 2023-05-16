@@ -1,7 +1,9 @@
+import { FoodDto } from '@/types'
 import { FC } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { FoodDto } from '../../types'
+import { increment } from '../../store/slices/counter.slice'
 
 const FoodContainer = styled.div`
   display: flex;
@@ -11,6 +13,7 @@ const FoodContainer = styled.div`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 10px;
+  border: 1px solid #e0e0e0;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   &:hover {
     scale: 1.005;
@@ -19,6 +22,7 @@ const FoodContainer = styled.div`
 const FoodImage = styled.img`
   width: 100%;
   height: 100%;
+  aspect-ratio: 3/2;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -39,6 +43,9 @@ const FoodPrice = styled.div`
   font-weight: bold;
   color: #b91c1c;
   margin-left: auto;
+  & > span {
+    font-size: 1.5rem;
+  }
 `
 
 const FooterFoodItem = styled.div`
@@ -69,8 +76,10 @@ const AddToCartButton = styled.button`
 `
 
 const FoodItem: FC<FoodDto> = ({ id, name, description, price, image }) => {
+  const dispatch = useDispatch()
+
   const handleAddToCart = (_evt: any) => {
-    console.log(`Add ${name} to cart`)
+    dispatch(increment())
   }
   return (
     <FoodContainer>
@@ -83,7 +92,10 @@ const FoodItem: FC<FoodDto> = ({ id, name, description, price, image }) => {
           <FoodDescription>{description}</FoodDescription>
           <AddToCartButton onClick={handleAddToCart}>Add to cart</AddToCartButton>
         </FooterContentWrapper>
-        <FoodPrice>{price}$</FoodPrice>
+        <FoodPrice>
+          {price}
+          <span>$</span>
+        </FoodPrice>
       </FooterFoodItem>
     </FoodContainer>
   )

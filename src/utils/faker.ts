@@ -66,3 +66,11 @@ export const getFoods = async (): Promise<FoodDto[]> => {
     }, 1000)
   })
 }
+
+export const getFood = async (id: string): Promise<FoodDto> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(FOODS.find(food => food.id === id)!)
+    }, 1000)
+  })
+}

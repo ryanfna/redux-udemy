@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { BrandIcon } from '..'
 import globalConfig from '../../config/GlobalConfig'
@@ -6,19 +7,14 @@ import globalConfig from '../../config/GlobalConfig'
 const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 15px;
   background-color: white;
   color: #b91c1c;
-  font-size: 24px;
   font-weight: bold;
   border-bottom: 1px solid #b91c1c;
   position: relative;
-  width: 100%;
   z-index: 1;
-  & > div {
-    display: flex;
-    align-items: center;
-  }
   a {
     text-decoration: none;
     color: #b91c1c;
@@ -27,6 +23,7 @@ const HeaderContainer = styled.div`
 
 const BrandTitle = styled.div`
   margin-left: 10px;
+  font-size: 1.25rem;
 `
 
 const Brand = styled.div`
@@ -35,15 +32,26 @@ const Brand = styled.div`
   cursor: pointer;
 `
 
+const CartIcon = styled.div`
+  padding: 10px;
+  background-color: #b91c1c;
+  color: white;
+  border-radius: 50%;
+  aspect-ratio: 1;
+`
+
 const Header = () => {
+  const counter = useSelector((state: any) => state.counter)
+  const navigate = useNavigate()
   return (
     <HeaderContainer>
-      <Link to="/">
-        <Brand>
-          <BrandIcon />
-          <BrandTitle>{globalConfig.title}</BrandTitle>
-        </Brand>
-      </Link>
+      <Brand onClick={() => navigate('/')}>
+        <BrandIcon />
+        <BrandTitle>{globalConfig.title}</BrandTitle>
+      </Brand>
+      <CartIcon>
+        <div>{counter}</div>
+      </CartIcon>
     </HeaderContainer>
   )
 }

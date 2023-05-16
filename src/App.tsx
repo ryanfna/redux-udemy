@@ -23,6 +23,7 @@ const BannerContainer = styled.div`
   padding: 15px;
   text-align: center;
   margin: 0 auto;
+  font-style: italic;
   color: #b91c1c;
   font-size: 1rem;
   font-weight: light;
