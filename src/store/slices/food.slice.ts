@@ -1,5 +1,5 @@
 import { database } from '@/config/firebase' // Import the firebase instance
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import { collection, getDocs } from 'firebase/firestore'
 
@@ -11,16 +11,14 @@ export const fetchData = createAsyncThunk('data/fetchData', async () => {
 })
 
 const dataSlice = createSlice({
-  name: 'cart',
+  name: 'foods',
   initialState: [],
-  reducers: {
-    // Add other reducer actions such as create, update, delete if needed
-  },
+  reducers: {},
   extraReducers: builder => {
     // Handle the async thunk action
-    // builder.addCase(fetchData.fulfilled, (state, action) => {
-    //   return action.payload // Update the state with the fetched data
-    // })
+    builder.addCase(fetchData.fulfilled, (state, action: PayloadAction<any>) => {
+      return action.payload // Update the state with the fetched data
+    })
   }
 })
 

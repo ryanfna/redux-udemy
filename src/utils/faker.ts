@@ -74,3 +74,7 @@ export const getFood = async (id: string): Promise<FoodDto> => {
     }, 1000)
   })
 }
+
+export const generateUUID = (): string => {
+  return Math.random().toString(36).substring(2) + Date.now().toString(36)
+}

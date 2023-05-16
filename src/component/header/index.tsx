@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { BrandIcon } from '..'
+import { BrandIcon, ShoppingCart } from '..'
 import globalConfig from '../../config/GlobalConfig'
 
 const HeaderContainer = styled.div`
@@ -36,12 +36,20 @@ const CartIcon = styled.div`
   padding: 10px;
   background-color: #b91c1c;
   color: white;
-  border-radius: 50%;
-  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  min-width: 50px;
+  cursor: pointer;
+
+  & > svg {
+    margin-right: 5px;
+  }
 `
 
 const Header = () => {
-  const counter = useSelector((state: any) => state.counter)
+  const cart = useSelector((state: any) => state.cart)
   const navigate = useNavigate()
   return (
     <HeaderContainer>
@@ -49,8 +57,9 @@ const Header = () => {
         <BrandIcon />
         <BrandTitle>{globalConfig.title}</BrandTitle>
       </Brand>
-      <CartIcon>
-        <div>{counter}</div>
+      <CartIcon onClick={() => navigate('/cart')}>
+        <ShoppingCart />
+        <div>{cart.length}</div>
       </CartIcon>
     </HeaderContainer>
   )

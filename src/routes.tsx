@@ -1,5 +1,6 @@
 import { RouteObject } from 'react-router-dom'
 import App from './App'
+import CartPage from './pages/cart'
 import DetailFood from './pages/detail'
 import Feeds from './pages/feeds'
 
@@ -15,6 +16,10 @@ const routes: RouteObject[] = [
       {
         path: '/food/:foodId',
         element: <DetailFood />
+      },
+      {
+        path: '/cart',
+        element: <CartPage />
       }
     ]
   },
