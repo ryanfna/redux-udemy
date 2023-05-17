@@ -1,10 +1,22 @@
 import { RootState } from '@/store'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CartItem, removeCard } from '../../store/slices/cart.slice'
-import { ButtonRemove, CartItemContainer, CartItemImage, CartListContainer } from './cart.style'
+import {
+  ButtonRemove,
+  CartDescriptionItem,
+  CartInfo,
+  CartItemContainer,
+  CartItemImage,
+  CartListContainer,
+  CartPriceItem,
+  CartTitleItem,
+  CartTotalContainer,
+  CartTotalPrice,
+  CartTotalTitle
+} from './cart.style'
 
-const CartInline: FC<CartItem> = ({ id, image, name, description, price }) => {
+const CartInline: FC<CartItem> = ({ id, image, name, description, price, quantity }) => {
   const dispatch = useDispatch()
 
   const handleRemoveFromCart = (_evt: any) => {
@@ -15,9 +27,12 @@ const CartInline: FC<CartItem> = ({ id, image, name, description, price }) => {
   return (
     <CartItemContainer>
       <CartItemImage src={image} />
-      <div>{name}</div>
-      <div>{description}</div>
-      <div>{price}</div>
+      <CartInfo>
+        <CartTitleItem>{name}</CartTitleItem>
+        <CartDescriptionItem>{description}</CartDescriptionItem>
+      </CartInfo>
+      <CartPriceItem>{price}$</CartPriceItem>
+      <div>x{quantity}</div>
       <ButtonRemove onClick={handleRemoveFromCart}>Remove</ButtonRemove>
     </CartItemContainer>
   )
@@ -25,12 +40,19 @@ const CartInline: FC<CartItem> = ({ id, image, name, description, price }) => {
 
 const CartPage = () => {
   const cart = useSelector((state: RootState) => state.cart)
+  const total = useMemo(() => cart.reduce((acc, item) => acc + item.price! * item.quantity, 0), [cart])
+
   return (
     <>
       <CartListContainer>
         {cart.map((item, index) => (
           <CartInline key={index} {...item} />
         ))}
+        <br />
+        <CartTotalContainer>
+          <CartTotalTitle>Total:</CartTotalTitle>
+          <CartTotalPrice>{total}$</CartTotalPrice>
+        </CartTotalContainer>
       </CartListContainer>
     </>
   )

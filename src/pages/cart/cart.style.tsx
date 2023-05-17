@@ -44,8 +44,45 @@ export const CartListContainer = styled.div`
   padding: 15px;
   text-align: center;
   margin: 0 auto;
-  font-style: italic;
   color: #b91c1c;
   font-size: 1rem;
   font-weight: light;
+`
+
+export const CartInfo = styled.div`
+  display: block;
+  width: 30%;
+`
+
+export const CartTitleItem = styled.div`
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: left;
+`
+
+export const CartDescriptionItem = styled.div`
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  text-align: left;
+`
+
+export const CartPriceItem = styled.div`
+  font-weight: bold;
+  font-size: 1.2rem;
+`
+
+export const CartTotalContainer = styled.div`
+  display: flex;
+  justify-content: end;
+`
+
+export const CartTotalTitle = styled.div`
+  font-size: 1.2rem;
+  margin-right: 10px;
+`
+
+export const CartTotalPrice = styled.div`
+  font-weight: bold;
+  font-size: 1.2rem;
 `
