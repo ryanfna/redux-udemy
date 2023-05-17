@@ -37,11 +37,10 @@ const InfoFoodContainer = styled.div`
   padding: 0 15px;
 `
 
-const TitleNameFood = styled.h1`
+const TitleNameFood = styled.h2`
   font-weight: bold;
   margin: 0;
-  color: #b91c1c;
-  font-size: 2.5rem;
+  font-size: 2rem;
 `
 
 const DescriptionFood = styled.div`
@@ -89,11 +88,11 @@ const DetailFood = () => {
       <DetailFoodImage src={food?.image} alt={food?.name} />
       <InfoFoodContainer>
         <TitleNameFood>{food?.name}</TitleNameFood>
-        <DescriptionFood>{food?.description}</DescriptionFood>
         <PriceFood>
           {food?.price}
           <span>$</span>
         </PriceFood>
+        <DescriptionFood>{food?.description}</DescriptionFood>
         <ButtonAddToCart onClick={addToCart}>Add to cart</ButtonAddToCart>
       </InfoFoodContainer>
     </DetailFoodContainer>
