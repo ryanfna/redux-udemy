@@ -23,9 +23,8 @@ export const CartItemImage = styled.img`
 `
 
 export const ButtonRemove = styled.button`
-  background-color: #b91c1c;
-  color: white;
-  border: none;
+  background-color: white;
+  color: #b91c1c;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
@@ -33,8 +32,8 @@ export const ButtonRemove = styled.button`
   font-weight: bold;
   border: 1px solid #b91c1c;
   &:hover {
-    background-color: white;
-    color: #b91c1c;
+    background-color: #b91c1c;
+    color: white;
   }
 `
 
@@ -116,8 +115,7 @@ export const CartTotalPrice = styled.div`
 export const CartButtonCheckout = styled.button`
   display: block;
   width: 100%;
-  background-color: transparent;
-  color: #b91c1c;
+  background-color: #b91c1c;
   border-radius: 5px;
   margin-top; 25px;
   padding: 5px 30px;
@@ -125,8 +123,9 @@ export const CartButtonCheckout = styled.button`
   font-size: 1rem;
   font-weight: bold;
   border: 1px solid #b91c1c;
+  color: white;
   &:hover {
-    background-color: #b91c1c;
-    color: white;
+    background-color: transparent;
+    color: #b91c1c;
   }
 `

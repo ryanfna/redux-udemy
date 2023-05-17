@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Brand onClick={() => navigate('/')}>
-        <BrandIcon />
+        <BrandIcon width="2em" height="2em" />
         <BrandTitle>{globalConfig.title}</BrandTitle>
       </Brand>
       <CartIcon onClick={() => navigate('/cart')}>
