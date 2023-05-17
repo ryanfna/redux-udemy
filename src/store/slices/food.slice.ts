@@ -1,14 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { database } from 'config/firebase.config'
+import { collection, getDocs } from 'firebase/firestore'
 import { AppState } from 'store'
 import { FoodDto } from 'types'
-import { getFoods } from 'utils/faker'
 
 const COLLECTION_NAME = 'foods'
 
 export const fetchFoods = createAsyncThunk('data/fetchData', async () => {
-  // const response = await getDocs(collection(database, COLLECTION_NAME))
-  const response = await getFoods()
-  return response // Return the retrieved data
+  const docRef = await getDocs(collection(database, COLLECTION_NAME))
+  const data = docRef.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+  return data // Return the retrieved data
 })
 
 type Status = 'idle' | 'loading' | 'succeeded' | 'failed'

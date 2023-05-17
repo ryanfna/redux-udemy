@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, AppState } from 'store'
 import { fetchFoods, selectAllFoods } from 'store/slices/food.slice'
@@ -11,9 +11,7 @@ const Feeds = () => {
   const status = useSelector((state: AppState) => state.foods.status)
   const dispatch = useDispatch<AppDispatch>()
 
-  console.log('foods', foods)
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchFoods())
     }

@@ -1,8 +1,8 @@
+import globalConfig from 'config/global.config'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { BrandIcon, ShoppingCart } from '..'
-import globalConfig from '../../config/GlobalConfig'
 
 const HeaderContainer = styled.div`
   display: flex;
