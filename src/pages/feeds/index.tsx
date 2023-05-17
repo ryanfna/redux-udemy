@@ -1,23 +1,29 @@
+import { AppDispatch, AppState } from '@/store'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchFoods, selectAllFoods } from '../../store/slices/food.slice'
 import { FoodDto } from '../../types'
-import { getFoods } from '../../utils/faker'
 import FoodItem from './FoodItem'
 import { FeedsContainer, GridContainer } from './feeds.style'
 
 const Feeds = () => {
-  const [feeds, setFeeds] = React.useState<FoodDto[]>([])
+  const foods = useSelector(selectAllFoods)
+  const status = useSelector((state: AppState) => state.foods.status)
+  const dispatch = useDispatch<AppDispatch>()
+
+  console.log('foods', foods)
 
   React.useEffect(() => {
-    getFoods().then((res: FoodDto[]) => {
-      setFeeds(res)
-    })
-  }, [])
+    if (status === 'idle') {
+      dispatch(fetchFoods())
+    }
+  }, [dispatch])
 
   return (
     <FeedsContainer>
       <GridContainer>
-        {feeds.map((feed: FoodDto) => {
-          return <FoodItem key={feed.id} {...feed} />
+        {foods.map((food: FoodDto) => {
+          return <FoodItem key={food.id} {...food} />
         })}
       </GridContainer>
     </FeedsContainer>

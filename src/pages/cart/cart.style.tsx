@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../../config/misc'
 
 export const CartItemContainer = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ export const ButtonRemove = styled.button`
 
 export const CartListContainer = styled.div`
   display: block;
-  width: 50%;
+  width: 95%;
   margin-left: auto;
   padding: 15px;
   text-align: center;
@@ -47,6 +48,12 @@ export const CartListContainer = styled.div`
   color: #b91c1c;
   font-size: 1rem;
   font-weight: light;
+  @media ${device.laptop} {
+    width: 50%;
+  }
+  @media ${device.tablet} {
+    width: 70%;
+  }
 `
 
 export const CartInfo = styled.div`

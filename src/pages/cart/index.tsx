@@ -1,4 +1,4 @@
-import { RootState } from '@/store'
+import { AppState } from '@/store'
 import { FC, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CartItem, removeCard } from '../../store/slices/cart.slice'
@@ -39,7 +39,7 @@ const CartInline: FC<CartItem> = ({ id, image, name, description, price, quantit
 }
 
 const CartPage = () => {
-  const cart = useSelector((state: RootState) => state.cart)
+  const cart = useSelector((state: AppState) => state.cart)
   const total = useMemo(() => cart.reduce((acc, item) => acc + item.price! * item.quantity, 0), [cart])
 
   return (

@@ -1,26 +1,43 @@
-import { database } from '@/config/firebase' // Import the firebase instance
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
-import { collection, getDocs } from 'firebase/firestore'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { AppState } from '..'
+import { getFoods } from '../../utils/faker'
 
 const COLLECTION_NAME = 'foods'
 
-export const fetchData = createAsyncThunk('data/fetchData', async () => {
-  const response = await getDocs(collection(database, COLLECTION_NAME))
+export const fetchFoods = createAsyncThunk('data/fetchData', async () => {
+  // const response = await getDocs(collection(database, COLLECTION_NAME))
+  const response = await getFoods()
+  console.log(response)
   return response // Return the retrieved data
 })
 
-const dataSlice = createSlice({
+const initialState = {
+  foods: [],
+  status: 'idle',
+  error: null || ''
+}
+
+const foodSlice = createSlice({
   name: 'foods',
-  initialState: [],
+  initialState,
   reducers: {},
   extraReducers: builder => {
-    // Handle the async thunk action
-    builder.addCase(fetchData.fulfilled, (state, action: PayloadAction<any>) => {
-      return action.payload // Update the state with the fetched data
-    })
+    builder
+      .addCase(fetchFoods.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      .addCase(fetchFoods.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        // Add any fetched foods to the array
+        state.foods = state.foods.concat(action.payload as any)
+      })
+      .addCase(fetchFoods.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = "Couldn't fetch foods"
+      })
   }
 })
 
-export const { actions } = dataSlice
-export default dataSlice.reducer
+export const { actions } = foodSlice
+export const selectAllFoods = (state: AppState) => state.foods.foods
+export default foodSlice.reducer
