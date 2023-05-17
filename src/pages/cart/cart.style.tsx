@@ -56,6 +56,16 @@ export const CartListContainer = styled.div`
   }
 `
 
+export const CartEmpty = styled.div`
+  display: block;
+  width: 95%;
+  text-align: center;
+  margin: 2rem auto;
+  color: #b91c1c;
+  font-size: 2.5rem;
+  font-weight: bold;
+`
+
 export const CartInfo = styled.div`
   display: block;
   width: 30%;
@@ -81,15 +91,42 @@ export const CartPriceItem = styled.div`
 
 export const CartTotalContainer = styled.div`
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #b91c1c;
+  padding: 15px 25px;
 `
 
 export const CartTotalTitle = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-right: 10px;
+  font-weight: bold;
 `
 
 export const CartTotalPrice = styled.div`
   font-weight: bold;
   font-size: 1.2rem;
+
+  & > span {
+    font-size: 1.25rem;
+    font-weight: light;
+  }
+`
+
+export const CartButtonCheckout = styled.button`
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  color: #b91c1c;
+  border-radius: 5px;
+  margin-top; 25px;
+  padding: 5px 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid #b91c1c;
+  &:hover {
+    background-color: #b91c1c;
+    color: white;
+  }
 `

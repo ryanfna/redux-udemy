@@ -4,7 +4,7 @@ import { AppDispatch, AppState } from 'store'
 import { fetchFoods, selectAllFoods } from 'store/slices/food.slice'
 import { FoodDto } from 'types'
 import FoodItem from './FoodItem'
-import { FeedsContainer, GridContainer } from './feeds.style'
+import { FeedsContainer, GridContainer, TitleFeed } from './feeds.style'
 
 const Feeds = () => {
   const foods = useSelector(selectAllFoods)
@@ -21,6 +21,7 @@ const Feeds = () => {
 
   return (
     <FeedsContainer>
+      <TitleFeed>Explore our collections</TitleFeed>
       <GridContainer>
         {foods.map((food: FoodDto) => {
           return <FoodItem key={food.id} {...food} />

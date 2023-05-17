@@ -1,4 +1,4 @@
 const config = {
-  title: 'Udemy Food Order'
+  title: 'Udemy Restaurant'
 }
 export default config

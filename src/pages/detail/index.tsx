@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { AppState } from 'store'
 import { addCard } from 'store/slices/cart.slice'
+import { selectFoodById } from 'store/slices/food.slice'
 import { styled } from 'styled-components'
-import { FoodDto } from 'types'
-import { getFood } from 'utils/faker'
 
 const ButtonAddToCart = styled.button`
   background-color: #b91c1c;
@@ -60,21 +59,31 @@ const PriceFood = styled.div`
   }
 `
 
+const FoodNotFound = styled.div`
+  display: block;
+  width: 95%;
+  text-align: center;
+  margin: 0 auto;
+  color: #b91c1c;
+  font-size: 2rem;
+  font-weight: light;
+`
+
 const DetailFood = () => {
   const { foodId } = useParams()
-  const [food, setFood] = useState<FoodDto>()
   const dispatch = useDispatch()
+  const food = useSelector((state: AppState) => selectFoodById(state, foodId!))
+  const status = useSelector((state: AppState) => state.foods.status)
+
+  console.log(status)
 
   const addToCart = () => {
     if (!food) return
     dispatch(addCard(food))
   }
 
-  useEffect(() => {
-    if (!foodId) return
-    getFood(foodId).then(res => setFood(res))
-  }, [foodId])
-
+  if (status === 'loading') return <FoodNotFound>Loading...</FoodNotFound>
+  if (!food) return <FoodNotFound>Food Not Found</FoodNotFound>
   return (
     <DetailFoodContainer>
       <DetailFoodImage src={food?.image} alt={food?.name} />

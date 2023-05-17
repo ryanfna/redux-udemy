@@ -13,11 +13,10 @@ const FoodContainer = styled.div`
   height: 100%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #e0e0e0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   &:hover {
-    scale: 1.005;
+    border: 1px solid #b91c1c;
   }
 `
 const FoodImage = styled.img`
@@ -25,8 +24,8 @@ const FoodImage = styled.img`
   height: 100%;
   aspect-ratio: 3/2;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 `
 
 const FoodTitle = styled.div`
@@ -51,7 +50,7 @@ const FoodPrice = styled.div`
 
 const FooterFoodItem = styled.div`
   margin-top: 5px;
-  padding: 5px 15px 15px 15px;
+  padding: 5px 10px 10px 10px;
   display: flex;
   justify-content: space-between;
 `
@@ -62,17 +61,18 @@ const FooterContentWrapper = styled.div`
 
 const AddToCartButton = styled.button`
   background-color: #b91c1c;
-  color: white;
-  border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
+  background-color: white;
   border: 1px solid #b91c1c;
+  color: #b91c1c;
+  transition: all 0.5s ease-in-out;
   &:hover {
-    background-color: white;
-    color: #b91c1c;
+    background-color: #b91c1c;
+    color: white;
   }
 `
 

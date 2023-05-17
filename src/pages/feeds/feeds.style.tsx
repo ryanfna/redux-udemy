@@ -8,10 +8,16 @@ const FeedsContainer = styled.div`
   padding: 15px;
 `
 
+const TitleFeed = styled.h3`
+  font-weight: semi-bold;
+  margin: 0;
+  margin-bottom: 15px;
+`
+
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
 `
 
-export { FeedsContainer, GridContainer }
+export { FeedsContainer, GridContainer, TitleFeed }

@@ -1,10 +1,13 @@
 import { FC, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppState } from 'store'
-import { CartItem, removeCard } from 'store/slices/cart.slice'
+import { useNavigate } from 'react-router-dom'
+import { AppDispatch, AppState } from 'store'
+import { CartItem, checkoutCart, removeCard } from 'store/slices/cart.slice'
 import {
   ButtonRemove,
+  CartButtonCheckout,
   CartDescriptionItem,
+  CartEmpty,
   CartInfo,
   CartItemContainer,
   CartItemImage,
@@ -40,8 +43,22 @@ const CartInline: FC<CartItem> = ({ id, image, name, description, price, quantit
 
 const CartPage = () => {
   const cart = useSelector((state: AppState) => state.cart)
+  const dispatch = useDispatch<AppDispatch>()
+  const navigate = useNavigate()
   const total = useMemo(() => cart.reduce((acc, item) => acc + item.price! * item.quantity, 0), [cart])
 
+  const handleCheckOut = () => {
+    console.log('handleCheckOut')
+    const confirm = window.confirm('Are you sure you want to checkout?')
+    if (confirm) {
+      dispatch(checkoutCart())
+      setTimeout(() => {
+        navigate('/')
+      }, 1000)
+    }
+  }
+
+  if (!cart.length) return <CartEmpty>Your cart is empty</CartEmpty>
   return (
     <>
       <CartListContainer>
@@ -51,8 +68,12 @@ const CartPage = () => {
         <br />
         <CartTotalContainer>
           <CartTotalTitle>Total:</CartTotalTitle>
-          <CartTotalPrice>{total}$</CartTotalPrice>
+          <CartTotalPrice>
+            {total}
+            <span>$</span>
+          </CartTotalPrice>
         </CartTotalContainer>
+        <CartButtonCheckout onClick={handleCheckOut}>Checkout</CartButtonCheckout>
       </CartListContainer>
     </>
   )
