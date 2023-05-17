@@ -1,10 +1,10 @@
-import { FoodDto } from '@/types'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { addCard } from 'store/slices/cart.slice'
 import { styled } from 'styled-components'
-import { addCard } from '../../store/slices/cart.slice'
-import { getFood } from '../../utils/faker'
+import { FoodDto } from 'types'
+import { getFood } from 'utils/faker'
 
 const ButtonAddToCart = styled.button`
   background-color: #b91c1c;

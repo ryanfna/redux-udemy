@@ -1,8 +1,8 @@
-import { AppDispatch, AppState } from '@/store'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchFoods, selectAllFoods } from '../../store/slices/food.slice'
-import { FoodDto } from '../../types'
+import { AppDispatch, AppState } from 'store'
+import { fetchFoods, selectAllFoods } from 'store/slices/food.slice'
+import { FoodDto } from 'types'
 import FoodItem from './FoodItem'
 import { FeedsContainer, GridContainer } from './feeds.style'
 

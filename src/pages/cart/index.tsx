@@ -1,7 +1,7 @@
-import { AppState } from '@/store'
 import { FC, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CartItem, removeCard } from '../../store/slices/cart.slice'
+import { AppState } from 'store'
+import { CartItem, removeCard } from 'store/slices/cart.slice'
 import {
   ButtonRemove,
   CartDescriptionItem,

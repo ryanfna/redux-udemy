@@ -1,10 +1,10 @@
-import { FoodDto } from '@/types'
 import { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { addCard } from 'store/slices/cart.slice'
+import { increment } from 'store/slices/counter.slice'
 import styled from 'styled-components'
-import { addCard } from '../../store/slices/cart.slice'
-import { increment } from '../../store/slices/counter.slice'
+import { FoodDto } from 'types'
 
 const FoodContainer = styled.div`
   display: flex;

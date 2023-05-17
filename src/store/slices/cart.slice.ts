@@ -1,5 +1,5 @@
-import { FoodDto } from '@/types'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { FoodDto } from 'types'
 
 export type CartItem = Partial<FoodDto> & {
   quantity: number
