@@ -48,7 +48,6 @@ const CartPage = () => {
   const total = useMemo(() => cart.reduce((acc, item) => acc + item.price! * item.quantity, 0), [cart])
 
   const handleCheckOut = () => {
-    console.log('handleCheckOut')
     const confirm = window.confirm('Are you sure you want to checkout?')
     if (confirm) {
       dispatch(checkoutCart())
