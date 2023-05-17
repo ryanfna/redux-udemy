@@ -2,24 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Screenshot
-<img width="1409" alt="Screen Shot 2023-05-17 at 13 27 43" src="https://github.com/ryanphan629/redux-udemy/assets/51282340/d8ca7c66-b551-4485-a652-65c395a89463">
-<img width="1409" alt="Screen Shot 2023-05-17 at 13 27 43" src="https://github.com/ryanphan629/redux-udemy/assets/51282340/518a47f3-bd81-487b-9902-21eecf7f6654">
+## 🖼 Screenshot
+<img width="1410" alt="Screen Shot 2023-05-17 at 15 14 16" src="https://github.com/ryanphan629/redux-udemy/assets/51282340/3f27d999-38e4-4b49-9fde-fdaf07d9c29f">
+<img width="1406" alt="Screen Shot 2023-05-17 at 15 16 32" src="https://github.com/ryanphan629/redux-udemy/assets/51282340/348dbbcd-3ea4-40a3-97ff-0374885be62a">
 
 
-## Available Scripts
+## 📟 Available Scripts
 
 - In the project directory, you can runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-```bash
-pnpm dev
-```
+  ```bash
+  pnpm dev
+  ```
 
 - Format all code using `prettier`
-```bash
-pnpm format
-```
+  ```bash
+  pnpm format
+  ```
 
 ---
 
