@@ -19,7 +19,8 @@ export const CartItemImage = styled.img`
   aspect-ratio: 3/2;
   margin: -15px 15px -15px -15px;
   object-fit: cover;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 `
 
 export const ButtonRemove = styled.button`
@@ -40,6 +41,8 @@ export const ButtonRemove = styled.button`
 export const CartListContainer = styled.div`
   display: block;
   width: 95%;
+  border-radius: 15px 10px;
+  background-color: white;
   margin-left: auto;
   padding: 15px;
   text-align: center;
@@ -58,8 +61,12 @@ export const CartListContainer = styled.div`
 export const CartEmpty = styled.div`
   display: block;
   width: 95%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: white;
   text-align: center;
-  margin: 2rem auto;
+  margin: 1rem auto;
+  padding: 1rem;
   color: #b91c1c;
   font-size: 2.5rem;
   font-weight: bold;
@@ -73,7 +80,7 @@ export const CartInfo = styled.div`
 export const CartTitleItem = styled.div`
   font-weight: bold;
   font-size: 1.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-align: left;
 `
 
@@ -81,6 +88,10 @@ export const CartDescriptionItem = styled.div`
   font-size: 0.8rem;
   margin-bottom: 10px;
   text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `
 
 export const CartPriceItem = styled.div`
@@ -91,7 +102,7 @@ export const CartPriceItem = styled.div`
 export const CartTotalContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   border-top: 1px solid #b91c1c;
   padding: 15px 25px;
 `
@@ -124,6 +135,7 @@ export const CartButtonCheckout = styled.button`
   font-weight: bold;
   border: 1px solid #b91c1c;
   color: white;
+  transition: all 0.5s ease-in-out;
   &:hover {
     background-color: transparent;
     color: #b91c1c;

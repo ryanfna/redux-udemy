@@ -1,4 +1,6 @@
+import Auth from 'pages/auth'
 import AddFood from 'pages/feeds/AddFood'
+import Profile from 'pages/profile'
 import { RouteObject } from 'react-router-dom'
 import App from './App'
 import CartPage from './pages/cart'
@@ -25,8 +27,16 @@ const routes: RouteObject[] = [
       {
         path: '/add-food',
         element: <AddFood />
+      },
+      {
+        path: 'profile',
+        element: <Profile />
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <Auth />
   },
   {
     path: '*',

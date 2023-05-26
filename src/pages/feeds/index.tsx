@@ -1,8 +1,8 @@
+import { FoodDto } from '@types'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, AppState } from 'store'
 import { fetchFoods, selectAllFoods } from 'store/slices/food.slice'
-import { FoodDto } from 'types'
 import FoodItem from './FoodItem'
 import { FeedsContainer, GridContainer, TitleFeed } from './feeds.style'
 

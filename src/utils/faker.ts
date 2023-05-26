@@ -1,4 +1,4 @@
-import { FoodDto } from '../types'
+import { FoodDto } from '../@types'
 
 const FOODS: FoodDto[] = [
   {

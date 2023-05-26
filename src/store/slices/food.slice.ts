@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { FoodDto } from '@types'
 import { database } from 'config/firebase.config'
 import { collection, getDocs } from 'firebase/firestore'
 import { AppState } from 'store'
-import { FoodDto } from 'types'
 
 const COLLECTION_NAME = 'foods'
 

@@ -1,13 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { FoodDto } from 'types'
-
-export type CartItem = Partial<FoodDto> & {
-  quantity: number
-}
+import { CartDto, FoodDto } from '@types'
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: [] as CartItem[],
+  initialState: [] as CartDto[],
   reducers: {
     addCard: (state, action: PayloadAction<Partial<FoodDto>>) => {
       const item = state.find(item => item.id === action.payload.id)

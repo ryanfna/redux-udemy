@@ -1,45 +1,17 @@
-import { FC, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { AppDispatch, AppState } from 'store'
-import { CartItem, checkoutCart, removeCard } from 'store/slices/cart.slice'
+import { checkoutCart } from 'store/slices/cart.slice'
+import CartInline from './cart-inline'
 import {
-  ButtonRemove,
   CartButtonCheckout,
-  CartDescriptionItem,
   CartEmpty,
-  CartInfo,
-  CartItemContainer,
-  CartItemImage,
   CartListContainer,
-  CartPriceItem,
-  CartTitleItem,
   CartTotalContainer,
   CartTotalPrice,
   CartTotalTitle
 } from './cart.style'
-
-const CartInline: FC<CartItem> = ({ id, image, name, description, price, quantity }) => {
-  const dispatch = useDispatch()
-
-  const handleRemoveFromCart = (_evt: any) => {
-    if (!id) return
-    dispatch(removeCard(id))
-  }
-
-  return (
-    <CartItemContainer>
-      <CartItemImage src={image} />
-      <CartInfo>
-        <CartTitleItem>{name}</CartTitleItem>
-        <CartDescriptionItem>{description}</CartDescriptionItem>
-      </CartInfo>
-      <CartPriceItem>{price}$</CartPriceItem>
-      <div>x{quantity}</div>
-      <ButtonRemove onClick={handleRemoveFromCart}>Remove</ButtonRemove>
-    </CartItemContainer>
-  )
-}
 
 const CartPage = () => {
   const cart = useSelector((state: AppState) => state.cart)

@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import cartReducer from './slices/cart.slice'
 import counterReducer from './slices/counter.slice'
 import foodReducer, { fetchFoods } from './slices/food.slice'
+import userSlice from './slices/user.slice'
 
 const rootReducer = combineReducers({
   counter: counterReducer,
   cart: cartReducer,
-  foods: foodReducer
+  foods: foodReducer,
+  user: userSlice
 })
 
 const store = configureStore({

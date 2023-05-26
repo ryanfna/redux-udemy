@@ -1,7 +1,7 @@
+import { FoodDto } from '@types'
 import { database } from 'config/firebase.config'
 import { addDoc, collection } from 'firebase/firestore'
 import { useState } from 'react'
-import { FoodDto } from 'types'
 
 type Payload = Partial<FoodDto>
 
