@@ -3,8 +3,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## 🖼 Screenshot
-<img width="1410" alt="Screen Shot 2023-05-17 at 15 14 16" src="https://github.com/ryanphan629/redux-udemy/assets/51282340/3f27d999-38e4-4b49-9fde-fdaf07d9c29f">
-<img width="1406" alt="Screen Shot 2023-05-17 at 15 16 32" src="https://github.com/ryanphan629/redux-udemy/assets/51282340/348dbbcd-3ea4-40a3-97ff-0374885be62a">
+<img width="1604" alt="image" src="https://github.com/ryanfna/redux-udemy/assets/51282340/260aef52-b31b-4694-b0d5-8695322c51da">
+<img width="1603" alt="image" src="https://github.com/ryanfna/redux-udemy/assets/51282340/a7eb4880-d2fa-408e-b3ca-0f7ee0d93e50">
 
 
 ## 📟 Available Scripts
