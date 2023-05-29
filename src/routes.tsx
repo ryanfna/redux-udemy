@@ -1,3 +1,4 @@
+import { withProtected } from 'component/ProtectedRoute'
 import Auth from 'pages/auth'
 import AddFood from 'pages/feeds/AddFood'
 import Profile from 'pages/profile'
@@ -22,15 +23,15 @@ const routes: RouteObject[] = [
       },
       {
         path: '/cart',
-        element: <CartPage />
+        element: withProtected(<CartPage />)
       },
       {
         path: '/add-food',
-        element: <AddFood />
+        element: withProtected(<AddFood />)
       },
       {
         path: 'profile',
-        element: <Profile />
+        element: withProtected(<Profile />)
       }
     ]
   },

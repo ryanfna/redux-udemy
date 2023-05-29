@@ -23,7 +23,7 @@ export const AuthButton = styled.button<AuthButtonProps>`
     background-color: #b91c1c;
     color: white;
   }
-  margin-bottom: ${props => props.marginBottom || '0'};
+  margin-bottom: ${props => props.marginBottom ?? '0'};
 `
 
 export const InputPhoneStepContainer = styled.div`
@@ -34,6 +34,7 @@ export const InputPhoneStepContainer = styled.div`
   width: 50%;
   margin: auto;
   background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   border-radius: 10px;
 `

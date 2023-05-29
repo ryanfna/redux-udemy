@@ -83,6 +83,7 @@ const InfoContainer = styled.div`
 const LogoutButton = styled.button`
   color: #b91c1c;
   font-weight: bold;
+  margin-right: 10px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -93,6 +94,7 @@ const LogoutButton = styled.button`
 
 const InfoPhoneNumber = styled.div`
   margin-left: 5px;
+  cursor: pointer;
 `
 
 const Header = () => {
@@ -109,7 +111,7 @@ const Header = () => {
         {user.phone ? (
           <InfoHeaderContainer>
             <InfoContainer>
-              Halo <InfoPhoneNumber>{user.phone}</InfoPhoneNumber>,
+              Halo <InfoPhoneNumber onClick={() => navigate('/profile')}>{user.phone}</InfoPhoneNumber>,
               <LogoutButton onClick={() => dispatch(logout())}>Logout</LogoutButton>
             </InfoContainer>
           </InfoHeaderContainer>
