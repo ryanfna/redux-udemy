@@ -34,7 +34,7 @@ const CartPage = () => {
     <>
       <CartListContainer>
         {cart.map((item, index) => (
-          <CartInline key={index} {...item} />
+          <CartInline key={item?.id} {...item} />
         ))}
         <br />
         <CartTotalContainer>

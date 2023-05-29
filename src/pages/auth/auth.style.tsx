@@ -12,15 +12,15 @@ type AuthButtonProps = {
 }
 export const AuthButton = styled.button<AuthButtonProps>`
   background-color: white;
-  color: #b91c1c;
+  color: #991b1b;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  border: 1px solid #b91c1c;
+  border: 1px solid #991b1b;
   &:hover {
-    background-color: #b91c1c;
+    background-color: #991b1b;
     color: white;
   }
   margin-bottom: ${props => props.marginBottom ?? '0'};
@@ -42,14 +42,14 @@ export const InputPhoneStepContainer = styled.div`
 export const InputPhoneStepTitle = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
-  color: #b91c1c;
+  color: #991b1b;
   margin-bottom: 1rem;
 `
 
 export const InputPhoneStepInput = styled.input`
   padding: 0.5rem;
   border-radius: 5px;
-  border: 1px solid #b91c1c;
+  border: 1px solid #991b1b;
   margin-bottom: 1rem;
   font-size: 1rem;
 `

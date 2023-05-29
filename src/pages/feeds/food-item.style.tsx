@@ -1,19 +1,5 @@
 import styled from 'styled-components'
 
-const FoodContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  border-radius: 5px;
-  background-color: white;
-  border: 2px solid transparent;
-  &:hover {
-    border: 2px solid #b91c1c;
-  }
-`
 const FoodImage = styled.img`
   width: 100%;
   height: 100%;
@@ -40,7 +26,7 @@ const FoodDescription = styled.div`
 const FoodPrice = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  color: #b91c1c;
+  color: #991b1b;
   min-width: 30%;
   margin-left: auto;
   & > span {
@@ -50,10 +36,13 @@ const FoodPrice = styled.div`
 
 const FooterFoodItem = styled.div`
   height: 100%;
-  margin-top: 5px;
-  padding: 5px 10px 10px 10px;
+  padding: 5px 10px 30px 10px;
   display: flex;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: white;
   justify-content: space-between;
+  position: relative;
 `
 
 const FooterContentWrapper = styled.div`
@@ -64,23 +53,43 @@ const FooterContentWrapper = styled.div`
 `
 
 const AddToCartButton = styled.button`
+  display: none;
+  position: absolute;
   margin-top: auto;
   width: 100%;
-  background-color: #b91c1c;
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  background-color: white;
-  border: 1px solid #b91c1c;
-  color: #b91c1c;
-  transition: all 0.5s ease-in-out;
+  background-color: #991b1b;
+  color: white;
+  border: none;
+  padding: 8px 0;
+  transition: all 1s ease-in-out;
+  bottom: 0;
+  left: 0;
+`
+
+const FoodContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid transparent;
   &:hover {
-    background-color: #b91c1c;
-    color: white;
+    border: 2px solid #991b1b;
+  }
+
+  &:hover ${AddToCartButton} {
+    display: block;
   }
 `
+
 export {
   FoodContainer,
   FoodImage,

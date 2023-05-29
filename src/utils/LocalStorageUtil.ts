@@ -1,5 +1,7 @@
 import { UserDto } from '@types'
 
+const USER_KEY = 'user'
+
 // store object to local storage
 const storeData = <T>(key: string, data: T) => {
   localStorage.setItem(key, JSON.stringify(data))
@@ -12,15 +14,15 @@ const getData = <T>(key: string): T => {
 }
 
 const storeUser = (user: UserDto) => {
-  storeData('user', user)
+  storeData<UserDto>(USER_KEY, user)
 }
 
 const getUser = () => {
-  return getData('user')
+  return getData<UserDto>(USER_KEY)
 }
 
 const clearUser = () => {
-  localStorage.removeItem('user')
+  localStorage.removeItem(USER_KEY)
 }
 
 export { storeData, getData, storeUser, getUser, clearUser }

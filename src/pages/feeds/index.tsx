@@ -15,7 +15,7 @@ const Feeds = () => {
     if (status === 'idle') {
       dispatch(fetchFoods())
     }
-  }, [dispatch])
+  }, [dispatch, status])
 
   return (
     <FeedsContainer>

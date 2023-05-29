@@ -9,8 +9,6 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const { user } = useSelector((state: any) => state)
   const navigate = useNavigate()
 
-  console.log('user', user)
-
   if (Object.keys(user).length === 0) {
     navigate('/login')
   }

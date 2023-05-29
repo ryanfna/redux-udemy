@@ -1,4 +1,5 @@
 import { auth, RecaptchaVerifier, signInWithPhoneNumber } from 'config/firebase.config'
+import { ConfirmationResult } from 'firebase/auth'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -67,8 +68,7 @@ const OtpStep: React.FC<OtpStepProps> = ({ phoneNumber, onVerifyOtp, onResendOtp
 const PhoneNumberOtpComponent: React.FC = () => {
   const [step, setStep] = useState<Step>('phoneNumber')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [verified, setVerified] = useState(false)
-  const [confirm, setConfirm] = useState<any>()
+  const [confirm, setConfirm] = useState<ConfirmationResult>()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -97,17 +97,17 @@ const PhoneNumberOtpComponent: React.FC = () => {
   }
 
   const handleVerifyOtp = (otp: string) => {
+    if (!confirm) return
     confirm
       .confirm(otp)
       .then((result: any) => {
-        setVerified(true)
         dispatch(login(result.user))
         alert('OTP verified successfully!')
         setTimeout(() => {
           navigate('/')
         }, 1000)
       })
-      .catch((error: any) => {
+      .catch((_error: any) => {
         alert('Invalid OTP. Please try again.')
       })
   }

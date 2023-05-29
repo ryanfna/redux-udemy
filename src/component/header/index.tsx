@@ -1,6 +1,6 @@
 import globalConfig from 'config/global.config'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { logout } from 'store/slices/user.slice'
 import styled from 'styled-components'
 import { BrandIcon, ShoppingCart } from '..'
@@ -10,14 +10,14 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  color: #b91c1c;
+  color: #991b1b;
   font-weight: bold;
-  border-bottom: 1px solid #b91c1c;
+  border-bottom: 1px solid #991b1b;
   position: relative;
   z-index: 1;
   a {
     text-decoration: none;
-    color: #b91c1c;
+    color: #991b1b;
   }
 `
 
@@ -39,7 +39,7 @@ const CartIcon = styled.div`
   top: 50%;
   right: 0;
   padding: 15px;
-  background-color: #b91c1c;
+  background-color: #991b1b;
   color: white;
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@ const CartLength = styled.div`
   padding: 5px 15px;
   background-color: white;
   border-radius: 5px;
-  color: #b91c1c;
+  color: #991b1b;
   margin-top: 5px;
 `
 
@@ -81,10 +81,11 @@ const InfoContainer = styled.div`
 `
 
 const LogoutButton = styled.button`
-  color: #b91c1c;
+  color: #991b1b;
   font-weight: bold;
   margin-right: 10px;
   border: none;
+  font-size: 1rem;
   background-color: transparent;
   cursor: pointer;
   &:hover {
@@ -95,12 +96,17 @@ const LogoutButton = styled.button`
 const InfoPhoneNumber = styled.div`
   margin-left: 5px;
   cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
 `
 
 const Header = () => {
   const { cart, user } = useSelector((state: any) => state)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { pathname } = useLocation()
+
   return (
     <>
       <HeaderContainer>
@@ -111,7 +117,8 @@ const Header = () => {
         {user.phone ? (
           <InfoHeaderContainer>
             <InfoContainer>
-              Halo <InfoPhoneNumber onClick={() => navigate('/profile')}>{user.phone}</InfoPhoneNumber>,
+              <span>Halo</span>
+              <InfoPhoneNumber onClick={() => navigate('/profile')}>{user.phone}</InfoPhoneNumber>,
               <LogoutButton onClick={() => dispatch(logout())}>Logout</LogoutButton>
             </InfoContainer>
           </InfoHeaderContainer>
@@ -119,7 +126,7 @@ const Header = () => {
           <LogoutButton onClick={() => navigate('/login')}>Login</LogoutButton>
         )}
       </HeaderContainer>
-      {cart.length > 0 && (
+      {cart.length > 0 && pathname !== '/cart' && (
         <CartIcon onClick={() => navigate('/cart')}>
           <ShoppingCart height={24} width={24} />
           <CartLength>{cart.length} items</CartLength>

@@ -6,7 +6,7 @@ import { selectFoodById } from 'store/slices/food.slice'
 import { styled } from 'styled-components'
 
 const ButtonAddToCart = styled.button`
-  background-color: #b91c1c;
+  background-color: #991b1b;
   color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
@@ -51,7 +51,7 @@ const DescriptionFood = styled.div`
 const PriceFood = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  color: #b91c1c;
+  color: #991b1b;
   margin-left: auto;
   & > span {
     font-size: 1.5rem;
@@ -63,7 +63,7 @@ const FoodNotFound = styled.div`
   width: 95%;
   text-align: center;
   margin: 0 auto;
-  color: #b91c1c;
+  color: #991b1b;
   font-size: 2rem;
   font-weight: light;
 `
