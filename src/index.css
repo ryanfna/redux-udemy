@@ -2,9 +2,6 @@
 
 body, html, #root, .App {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -12,7 +9,8 @@ body, html, #root, .App {
   font-size: medium;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

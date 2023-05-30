@@ -7,6 +7,7 @@ export const CartItemContainer = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   border: 1px solid #991b1b;
+  transition: all 0.5s ease-out;
   margin-bottom: 5px;
   &:last-child {
     margin-bottom: 0;

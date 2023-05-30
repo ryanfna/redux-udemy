@@ -21,9 +21,9 @@ const Feeds = () => {
     <FeedsContainer>
       <TitleFeed>Explore our collections</TitleFeed>
       <GridContainer>
-        {foods.map((food: FoodDto) => {
-          return <FoodItem key={food.id} {...food} />
-        })}
+        {foods.map((food: FoodDto) => (
+          <FoodItem key={food.id} {...food} />
+        ))}
       </GridContainer>
     </FeedsContainer>
   )

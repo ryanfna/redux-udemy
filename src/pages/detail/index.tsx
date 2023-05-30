@@ -7,12 +7,21 @@ import { styled } from 'styled-components'
 
 const ButtonAddToCart = styled.button`
   background-color: #991b1b;
-  color: #fff;
-  padding: 10px 15px;
   border-radius: 5px;
-  border: none;
-  cursor: pointer;
+  color: white;
   font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  cursor: pointer;
+  border: 1px solid #991b1b;
+  transition: all 0.5s ease-in-out;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: white;
+    color: #991b1b;
+  }
 `
 
 const DetailFoodContainer = styled.div`
