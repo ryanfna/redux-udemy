@@ -10,7 +10,8 @@ import {
   CartListContainer,
   CartTotalContainer,
   CartTotalPrice,
-  CartTotalTitle
+  CartTotalTitle,
+  TitleCartContainer
 } from './cart.style'
 
 const CartPage = () => {
@@ -33,6 +34,7 @@ const CartPage = () => {
   return (
     <>
       <CartListContainer>
+        <TitleCartContainer>Your cart</TitleCartContainer>
         {cart.map((item, index) => (
           <CartInline key={item?.id} {...item} />
         ))}

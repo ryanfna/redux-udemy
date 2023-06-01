@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
-export const AuthContainer = styled.div`
+export const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
+  background-color: white;
 `
 
 type AuthButtonProps = {
@@ -26,21 +28,41 @@ export const AuthButton = styled.button<AuthButtonProps>`
   margin-bottom: ${props => props.marginBottom ?? '0'};
 `
 
+export const LoginButton = styled.button`
+  min-width: 50%;
+  padding: 7px 20px;
+  background-color: #991b1b;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 1px solid #991b1b;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background: white;
+    color: #991b1b;
+  }
+`
+
+export const Label = styled.label`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #991b1b;
+  margin-bottom: 0.5rem;
+`
+
 export const InputPhoneStepContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 50%;
   margin: auto;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   border-radius: 10px;
 `
 
 export const InputPhoneStepTitle = styled.div`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #991b1b;
   margin-bottom: 1rem;
@@ -52,4 +74,19 @@ export const InputPhoneStepInput = styled.input`
   border: 1px solid #991b1b;
   margin-bottom: 1rem;
   font-size: 1rem;
+  width: 100%;
+`
+
+export const ResendOtp = styled.div`
+  font-size: 1rem;
+
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  & > span.btn-action {
+    font-weight: bold;
+    color: #991b1b;
+    margin-left: 0.5rem;
+  }
 `

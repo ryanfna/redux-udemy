@@ -142,11 +142,12 @@ export const CartQuantityValue = styled.div`
 
 export const CartButtonCheckout = styled.button`
   display: block;
-  width: 100%;
+  margin-left: auto;
+  width: 50%;
   background-color: #991b1b;
   border-radius: 5px;
   margin-top; 25px;
-  padding: 5px 30px;
+  padding: 10px 30px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
@@ -157,4 +158,11 @@ export const CartButtonCheckout = styled.button`
     background-color: transparent;
     color: #991b1b;
   }
+`
+
+export const TitleCartContainer = styled.h3`
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  color: #991b1b;
 `

@@ -4,66 +4,11 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from 'store/slices/user.slice'
-import {
-  AuthButton,
-  AuthContainer,
-  InputPhoneStepContainer,
-  InputPhoneStepInput,
-  InputPhoneStepTitle
-} from './auth.style'
-
-type PhoneNumberStepProps = {
-  onNextStep: (phoneNumber: string) => void
-}
-
-type OtpStepProps = {
-  phoneNumber: string
-  onVerifyOtp: (otp: string) => void
-  onResendOtp: () => void
-}
+import { LoginContainer } from './auth.style'
+import OtpStep from './OtpStep'
+import PhoneNumberStep from './PhoneNumberStep'
 
 type Step = 'phoneNumber' | 'otp'
-
-const PhoneNumberStep: React.FC<PhoneNumberStepProps> = ({ onNextStep }) => {
-  const [phoneNumber, setPhoneNumber] = useState('')
-
-  const handleNextStep = () => {
-    onNextStep(phoneNumber)
-  }
-
-  return (
-    <InputPhoneStepContainer>
-      <InputPhoneStepTitle>Step 1: Enter your phone number</InputPhoneStepTitle>
-      <InputPhoneStepInput
-        type="text"
-        placeholder="Phone number"
-        value={phoneNumber}
-        onChange={e => setPhoneNumber(e.target.value)}
-      />
-      <AuthButton onClick={handleNextStep}>Next</AuthButton>
-    </InputPhoneStepContainer>
-  )
-}
-
-const OtpStep: React.FC<OtpStepProps> = ({ phoneNumber, onVerifyOtp, onResendOtp }) => {
-  const [otp, setOtp] = useState('')
-
-  const handleVerifyOtp = () => {
-    onVerifyOtp(otp)
-  }
-
-  return (
-    <InputPhoneStepContainer>
-      <InputPhoneStepTitle>Step 2: Verify your phone number</InputPhoneStepTitle>
-      {phoneNumber && <p>Enter the OTP sent to {phoneNumber}</p>}
-      <InputPhoneStepInput type="text" placeholder="OTP" value={otp} onChange={e => setOtp(e.target.value)} />
-      <AuthButton marginBottom="8px" onClick={handleVerifyOtp}>
-        Verify
-      </AuthButton>
-      <AuthButton onClick={onResendOtp}>Resend OTP</AuthButton>
-    </InputPhoneStepContainer>
-  )
-}
 
 const PhoneNumberOtpComponent: React.FC = () => {
   const [step, setStep] = useState<Step>('phoneNumber')
@@ -117,13 +62,13 @@ const PhoneNumberOtpComponent: React.FC = () => {
   }
 
   return (
-    <AuthContainer>
+    <LoginContainer>
       <div id="recapcha-container"></div>
       {step === 'phoneNumber' && <PhoneNumberStep onNextStep={handleNextStep} />}
       {step === 'otp' && (
         <OtpStep phoneNumber={phoneNumber} onVerifyOtp={handleVerifyOtp} onResendOtp={handleResendOtp} />
       )}
-    </AuthContainer>
+    </LoginContainer>
   )
 }
 
