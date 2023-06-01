@@ -77,7 +77,7 @@ const FoodContainer = styled.div`
   width: 100%;
   height: 100%;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
   border-radius: 5px;
   background-color: transparent;
   border: 2px solid transparent;
