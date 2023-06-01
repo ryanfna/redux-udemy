@@ -3,9 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## 🖼 Screenshot
-<img width="1604" alt="image" src="https://github.com/ryanfna/redux-udemy/assets/51282340/260aef52-b31b-4694-b0d5-8695322c51da">
-<img width="1603" alt="image" src="https://github.com/ryanfna/redux-udemy/assets/51282340/a7eb4880-d2fa-408e-b3ca-0f7ee0d93e50">
+<img width="1497" alt="image" src="https://github.com/ryanfna/redux-udemy/assets/51282340/46d0ba4b-0cc8-462f-9591-926b099faa92">
+<img width="1494" alt="image" src="https://github.com/ryanfna/redux-udemy/assets/51282340/65e681bc-3623-4816-a8f7-a6fc316fef56">
 
+## ✨ Features
+- Login with phone by OTP firebase
+- Add items to cart using redux toolkit
 
 ## 📟 Available Scripts
 
